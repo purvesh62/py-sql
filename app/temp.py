@@ -7,7 +7,10 @@ mydb = mysql.connector.connect(
     database="mydatabase"
 )
 mycursor = mydb.cursor()
-mycursor.execute("SHOW TABLES")
-myresult = mycursor.fetchall()
-for i in myresult:
+sql = "SELECT users.name AS users, products.name AS favorite FROM users INNER JOIN products ON users.fav = products.id"
+mycursor.execute(sql)
+
+result = mycursor.fetchall()
+
+for i in result:
     print(i)
