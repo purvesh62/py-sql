@@ -105,4 +105,11 @@ mycursor = mydb.cursor()
 # for i in myresult:
 #     print(i)
 
-
+#   Join Operations
+# sql = "SELECT users.name AS users, products.name AS favorite FROM users INNER JOIN products ON users.fav = products.id"
+# mycursor.execute(sql)
+#
+# result = mycursor.fetchall()
+#
+# for i in result:
+#     print(i)
