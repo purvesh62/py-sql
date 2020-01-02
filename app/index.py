@@ -93,4 +93,16 @@ mycursor = mydb.cursor()
 # mycursor.execute(sql)
 # mydb.commit()
 # print(mycursor.rowcount, "record(s) affected")
+#
+# sql = "INSERT INTO client (name, location) VALUES (%s, %s)"
+# val = ('C1', 'L1')
+# # sql = "SELECT * FROM client"
+# mycursor.execute(sql,val)
+# mydb.commit()
+# print("Record added ",mycursor.rowcount)
+#
+# myresult = mycursor.fetchall()
+# for i in myresult:
+#     print(i)
+
 
