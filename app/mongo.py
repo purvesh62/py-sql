@@ -42,3 +42,16 @@ mycol = mydb["customers"]
 
 # for x in mycol.find({},{ "address": 0 }):
 #     print(x)
+
+#   Conditional find
+# myquery = { "address": "Park Lane 38" }
+# mydoc = mycol.find(myquery)
+# for x in mydoc:
+#   print(x)
+
+# Address starting with S using regular expression
+# myquery = { "address": { "$gt": "S" } }
+# myquery = { "address": { "$regex": "^S" } }
+# mydoc = mycol.find(myquery)
+# for x in mydoc:
+#   print(x)
