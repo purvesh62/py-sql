@@ -19,7 +19,8 @@ class Blogpost(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    posts = Blogpost.query.all()
+    return render_template('index.html',posts = posts)
 
 @app.route('/addpost', methods =['POST'])
 def addpost():
@@ -27,6 +28,7 @@ def addpost():
     subtitle = request.form['subtitle']
     content = request.form['content']
     author = request.form['author']
+
 
     post = Blogpost(title=title,subtitle=subtitle,content=content,author=author,date_posted = datetime.now())
     db.session.add(post)
@@ -47,8 +49,9 @@ def add():
 @app.route('/post/<int:post_id>')
 def post(post_id):
     post = Blogpost.query.filter_by(id=post_id).one()
-
+    #date_posted = post.date_posted.strftime('%B %d, %Y')
     return render_template('post.html',post = post)
+    """date_posted = date_posted"""
 
 @app.route('/contact')
 def contact():
